@@ -52,6 +52,8 @@ namespace CardGames.GameLogic
 			}
 		}
 
+
+
 		/// <summary>
 		/// Indicates if there are cards remaining in the Snap game's Deck.
 		/// The game is over when there are no cards remaining.
@@ -152,6 +154,8 @@ namespace CardGames.GameLogic
 			_gameTimer.Stop ();
 		}
 	
+
+
 		#region Snap Game Unit Tests
 		#if DEBUG
 

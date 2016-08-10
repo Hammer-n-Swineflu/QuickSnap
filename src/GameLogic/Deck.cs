@@ -52,10 +52,7 @@ namespace CardGames.GameLogic
 		/// Returns all of the cards to the Deck, and shuffles their order.
 		/// All cards are turned so that they are face down.
 		/// </summary>
-		public void Shuffle()
-		{
-			//TODO: implement shuffle!
-		}
+
         
 		/// <summary>
 		/// Takes a card from the top of the Deck. This will return
@@ -75,7 +72,28 @@ namespace CardGames.GameLogic
 		    }
 		
         }
+
+		public void Shuffle()
+		{
+			for(int i = 0; i < 52; i++)
+			{
+				if(_cards[i].FaceUp) _cards[i].TurnOver();
+			}
+			Random rnd = new Random();
+			// for each card (no need to shuffle last card)
+			for(int i = 0; i < 52 - 1; i++)
+			{
+				// pick a random index
+				int rndIdx = rnd.Next(52 - i);
+				Card temp = _cards[i];
+				_cards[i] = _cards[i + rndIdx];
+				_cards[i + rndIdx] = temp;
+			}
+			_topCard = 0;
+		}
 	}
+
+
 
 	#region Deck Unit Tests
 	#if DEBUG
